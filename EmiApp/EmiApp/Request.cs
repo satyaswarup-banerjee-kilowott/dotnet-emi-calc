@@ -8,7 +8,7 @@ namespace EmiApp
 {
     public class Request
     {
-        public decimal Principal { internal get; set; }
+        public double Principal { internal get; set; }
         public double InterestRateInPercentage { internal get; set; }
         public int LoanDurationInYearCount { internal get; set; }
     }
