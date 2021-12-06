@@ -6,6 +6,18 @@ using System.Threading.Tasks;
 
 namespace SecondConsoleApp
 {
+    internal class MonthlyCom : Exception
+    {
+        public MonthlyCom()
+        {
+            Console.Write("Exception has occured : Monthly compounding cannot be greater than 12.  ");
+        }
+    }
+    
+    
+    
+    
+    
     internal class CalcProcessor
     {
         internal double Amt { private get; set; }
@@ -13,7 +25,8 @@ namespace SecondConsoleApp
         internal int t { private get; set; }
         internal int n { private get; set; }
 
-
+        
+     
 
         internal double CalculateEMI()
         {
@@ -21,7 +34,7 @@ namespace SecondConsoleApp
 
             EMI = Amt * Math.Pow((1 + i/n), 2*n);
 
-            return EMI;
+            return EMI/24;
         }
 
        

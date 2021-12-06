@@ -7,36 +7,54 @@ namespace SecondConsoleApp
       
         static void Main(string[] args)
         {
-            double principal = 0;
-            double interest = 0;
-            int duration = 0;
-            int compounding = 0;
+            try {
+                var spObject = new CalcProcessor();
+                Console.WriteLine("Enter the principle amount for EMI:");
+                double principal = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter the rate of interest for EMI:");
+                double interest = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter the duration for EMI (in years):");
+                int duration = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter the monthly compounding for EMI:");
+                int compounding = Convert.ToInt32(Console.ReadLine());
+
+                if(compounding > 12)
+                {
+                    throw new MonthlyCom();
+                }
+
+
+                spObject.Amt = principal;
+                spObject.i = interest;
+                spObject.t = duration;
+                spObject.n = compounding;
+
+                var FinalEMI = spObject.CalculateEMI();
 
 
 
-            var spObject = new CalcProcessor();
-            Console.WriteLine("Enter the principle amount for EMI:");
-            principal = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Enter the rate of Interest for EMI:");
-            interest = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Enter the duration for EMI (in years):");
-            duration = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter the monthly compounding for EMI:");
-            compounding = Convert.ToInt32(Console.ReadLine());
-            
-           
+                Console.WriteLine("The calculated EMI is: " + Math.Round(FinalEMI, 3) + "  INR\n");
 
-            spObject.Amt = principal;
-            spObject.i = interest;
-            spObject.t = duration;
-            spObject.n = compounding;
+            }
+            catch (Exception e) {
+                Console.WriteLine(e.Message);
+                
+            }
 
-            var FinalEMI = spObject.CalculateEMI();
-            FinalEMI = Math.Round(FinalEMI,3);
-            
+            finally
+            {
+               
+                Console.WriteLine("Calculation Elapsed.....");
 
-            Console.WriteLine($"The calculated EMI is : {FinalEMI}");
-            
+            }
+
+
+
+
+
+
+
+
 
 
         }
