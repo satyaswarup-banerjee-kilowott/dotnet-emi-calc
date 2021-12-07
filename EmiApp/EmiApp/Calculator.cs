@@ -5,6 +5,11 @@
         public Response CalculateContinousEmi(Request request)
         {
             var response = new Response();
+            if(request.InterestRateInPercentage == 0)
+            {
+                throw new NotFiniteNumberException();
+            }
+
             try
             {
                 var p = request.Principal;
@@ -16,8 +21,9 @@
             }
             catch (Exception ex)
             {
-                response = new Response() { ErrorMessage = ex.Message.ToString() };
-
+                
+                    response = new Response() { ErrorMessage = ex.Message.ToString() };
+                
             }
             finally{}
             return response;
@@ -38,7 +44,9 @@
 
             catch (Exception ex)
             {
-                response = new Response() { ErrorMessage = ex.Message.ToString() };
+                
+                    response = new Response() { ErrorMessage = ex.Message.ToString() };
+              
             }
           return response;
           
@@ -53,13 +61,15 @@
                 var power = request.LoanDurationInYearCount * 12;
                 var rate = request.InterestRateInPercentage / 100;
                 var accumulated = (double)request.Principal * Math.Pow(1 + rate / 12, power);
-                response.EmiPayment = (decimal)accumulated;
+                response.EmiPayment = (decimal)accumulated / (power);
                 // convert to response object
                 return response;
             }
             catch (Exception ex)
             {
-                response = new Response() { ErrorMessage = ex.Message.ToString() };
+                
+                    response = new Response {ErrorMessage = ex.Message.ToString() };
+       
             }
            
             finally { }
