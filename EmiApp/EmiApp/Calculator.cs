@@ -15,7 +15,7 @@
                 var p = request.Principal;
                 var time = request.LoanDurationInYearCount;
                 var rate = request.InterestRateInPercentage / 100;
-                var cont = (double)p * Math.Pow(1 + (rate / 365), 365 * time);
+                var cont = (double)p * System.Math.Pow(1 + (rate / 365), 365 * time);
                 response.EmiPayment = (decimal)cont;
                 return response;
             }
@@ -38,7 +38,7 @@
                 var time = request.LoanDurationInYearCount;
                 var rate = request.InterestRateInPercentage / 100;
                 double exp = 2.7183;
-                var daily = (double)p * Math.Pow(exp, (rate * time)) - (p);
+                var daily = (double)p * System.Math.Pow(exp, (rate * time)) - (p);
                 response.EmiPayment = (decimal)daily;
             }
 
@@ -60,7 +60,7 @@
             {
                 var power = request.LoanDurationInYearCount * 12;
                 var rate = request.InterestRateInPercentage / 100;
-                var accumulated = (double)request.Principal * Math.Pow(1 + rate / 12, power);
+                var accumulated = (double)request.Principal * System.Math.Pow(1 + rate / 12, power);
                 response.EmiPayment = (decimal)accumulated / (power);
                 // convert to response object
                 return response;
