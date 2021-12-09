@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="interface.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>EmiForm</title>
+</head>
+<body>
+    <h2>Enter the details for Monthly Compound Interest :</h2>
+    
+    <div class="container1">
+        <form action="https://localhost:7281/api/emi/calculatemonthlyemi" method="POST">
+      
+          <label for="principal" >Principal</label>
+          <input type="number" id="principal" class="form-control" name="principal" placeholder="Enter principal amount...">
+      
+          <label >Interest Rate(in percentage)</label>
+          <input type="number" id="interestRateInPercentage" class="form-control" name="interestRateInPercentage" placeholder="Enter the rate of Interest...">
+      
+          <label >Duration of Loan(in years)</label>
+          <input type="number" id="loanDurationInYearCount" class="form-control" name="loanDurationInYearCount" placeholder="Enter the loan duration....">
+          <input type="submit" value="submit" name="submit">
+        </form>
+    </div>
+    <br>
+ <h2>Enter the details for Daily Compound Interest :</h2>
+   <div class="container2">
+       <form action="">
+
+        <label for="principal" >Principal</label>
+        <input type="number" id="principal" class="form-control" name="principal" placeholder="Enter principal amount...">
+    
+        <label >Interest Rate(in percentage)</label>
+        <input type="number" id="interestRateInPercentage" class="form-control" name="interestRateInPercentage" placeholder="Enter the rate of Interest...">
+    
+        <label >Duration of Loan(in years)</label>
+        <input type="number" id="loanDurationInYearCount" class="form-control" name="loanDurationInYearCount" placeholder="Enter the loan duration....">
+        <input type="submit" value="submit" name="submit">
+        </form>
+    </div>
+    <br>
+ <h2>Enter the details for Continous Compound Interest :</h2>
+    <div class="container3">
+        <form action="">
+            <label for="principal" >Principal</label>
+            <input type="number" id="principal" class="form-control" name="principal" placeholder="Enter principal amount...">
+        
+            <label >Interest Rate(in percentage)</label>
+            <input type="number" id="interestRateInPercentage" class="form-control" name="interestRateInPercentage" placeholder="Enter the rate of Interest...">
+        
+            <label >Duration of Loan(in years)</label>
+            <input type="number" id="loanDurationInYearCount" class="form-control" name="loanDurationInYearCount" placeholder="Enter the loan duration....">
+            <input type="submit" value="submit" name="submit">  
+        </form>
+    </div>
+
+   
+
+
+ </body>
+ </html> 
