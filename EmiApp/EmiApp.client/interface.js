@@ -1,5 +1,5 @@
 
-
+//AJAX call for MontlyEmi API
 $(document).ready(function() {
     $("#form1").submit(function(event) {
         var formData ={
@@ -36,7 +36,7 @@ $(document).ready(function() {
 
 
 
-
+//AJAX call for DailyEmi API
 $(document).ready(function() {
     $("#form2").submit(function(event) {
         var formData ={
@@ -76,7 +76,7 @@ $(document).ready(function() {
 
 
 
-
+//AJAX call for ContinousEmi API
 $(document).ready(function() {
     $("#form3").submit(function(event) {
         var formData ={
