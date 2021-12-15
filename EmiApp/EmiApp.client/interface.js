@@ -7,7 +7,8 @@ $(document).ready(function() {
             interestRateInPercentage: $("#interestRateInPercentage").val(),
             loanDurationInYearCount: $("#loanDurationInYearCount").val(),
         };
-    
+
+       
         $.ajax({
             type: "POST",
             url: "https://localhost:7281/api/emi/calculatemonthlyemi",
@@ -15,16 +16,40 @@ $(document).ready(function() {
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify(formData),
             dataType: "json",
-            encode: true,
-        }).done(function(data){
-            console.log(data);
-
+            // encode: true,
+             success: function(response) {
+                 var myjson = JSON.stringify(response,null,4);
+                 var x = window.open();
+                 x.document.open();
+                 x.document.write('<html><body><pre>'+ myjson + '</pre></body><html>');
+                 x.document.close();
+                 
+                console.log(myjson);
+             }
             
-        });
-        (response) =>{
-            console.log(response);
-        }
+        })
 
+        // fetch("https://localhost:7281/api/emi/calculatemonthlyemi")
+        // .then(function(response){
+        //     return response.json()
+        // })
+        // .then(function(data)
+        // {
+        //     appendData(data);
+        // })
+        // .catch(function(err)
+        // {
+        //     console.log(err);
+        // });
+        
+        // // .done(function(data){
+        //     console.log(data);
+           
+            
+        // });
+
+        
+       
         event.preventDefault();
 
 
